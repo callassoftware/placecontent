@@ -2,8 +2,8 @@
 // Main Javascript for the Place Content fixup template
 //
 //-------------------------------------------------------------------------------------------------
-// Copyright © 2017 - Four Pees
 // Author: David van Driessche
+// Copyright © 2017 - Four Pees
 //-------------------------------------------------------------------------------------------------
 
 
