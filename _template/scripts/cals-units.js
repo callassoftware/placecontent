@@ -92,6 +92,52 @@ function unitConvertToFrom( inValue, inFromUnit, inToUnit ) {
 
 
 
+//-------------------------------------------------------------------------------------------------
+// Working with strings
+//-------------------------------------------------------------------------------------------------
+
+// Converts the given value and measurement unit into a nicely formatted string
+// Example: var theString = unitFormatWithUnit( 100, unitUnits.px );
+//
+function unitFormatWithUnit( inValue, inUnit ) {
+    
+    switch( inUnit ) {
+            
+        case unitUnits.point: {
+            return inValue + " pt";
+        }   
+            
+        case unitUnits.px: {
+            return inValue + " px";
+        }   
+            
+        case unitUnits.mm: {
+            return inValue + " mm";
+        }   
+            
+        case unitUnits.cm: {
+            return inValue + " cm";
+        }   
+            
+        case unitUnits.m: {
+            return inValue + " m";
+        }   
+            
+        case unitUnits.inch: {
+            var theInch = inValue % 12;
+            var theFeet = (inValue - theInch) / 12;
+            return theFeet + "' " + theInch + "\"";
+        }   
+        
+        case unitUnits.foot: {
+            return inValue + "'";
+        }   
+            
+        default: {
+            return inValue + " penguins";
+        }       
+    }
+}
 
 
 
