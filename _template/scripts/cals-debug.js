@@ -19,4 +19,11 @@ function debugLog( inMessage ) {
 	console.log( inMessage );
 }
 
+// Log a message and corresponding object (which is stringified)
+// Example: debugLogObject( "Penguins age is", theAge )
+//
+function debugLogObject( inMessage, inObject ) {
+	console.log( inMessage + ": " + JSON.stringify( inObject ) );
+}
+
 
