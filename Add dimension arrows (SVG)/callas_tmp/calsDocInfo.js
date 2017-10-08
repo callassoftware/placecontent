@@ -2,7 +2,7 @@ var cals_doc_info =
 {
 	'document':
 	{
-		'name': '210x285_ClassicCar_Page - test.pdf'
+		'name': '210x285_ClassicCar_Page.pdf'
 		,'path': '\/Users\/dvd\/Desktop'
 		,'info':
 			{

@@ -26,3 +26,4 @@ function debugLogObject( inMessage, inObject ) {
 	console.log( inMessage + ": " + JSON.stringify( inObject ) );
 }
 
+
