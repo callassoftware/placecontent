@@ -433,7 +433,7 @@ Object.freeze(pcAnchorPoints);
 //            supported here.
 // ElementAnchor: the anchor you want to match up on the element.
 // Pagenumber: the page about which we're excited
-// Pagebox: the name of the pagebox you want to match up to.
+// Pagebox: the pagebox you want to match up to.
 // PageboxAnchor: the anchor you want to match up on the pagebox.
 // OffsetX: an additional horizontal offset (positive is to the right) between the anchor points of
 //          the object and the pagebox. Specified in pt.
