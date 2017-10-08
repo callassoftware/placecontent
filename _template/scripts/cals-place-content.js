@@ -30,7 +30,7 @@ Object.freeze(pcPagebox);
 
 
 // Given the page index for a page (0-based), returns the page box asked for.
-// Example: var theTrimBox = pcGetPagebox( 0, cpPagebox.trimbox )
+// Example: var theTrimBox = pcGetPagebox( 0, pcPagebox.trimbox )
 // 
 // inPageNumber: the (0-based) page number for the page you're interested in
 // inPagebox: the pagebox you're interested in
@@ -47,28 +47,28 @@ function pcGetPagebox( inPageNumber, inPagebox ) {
 		if ( thePage.trimbox != null) {
 			return thePage.trimbox;
 		} else {
-			return getPagebox( inPageNumber, cpPagebox.cropbox);
+			return getPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'bleedbox') {
 		if (thePage.bleedbox != null) {
 			return thePage.bleedbox;
 		} else {
-			return getPagebox( inPageNumber, cpPagebox.cropbox);
+			return getPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'artbox') {
 		if (thePage.artbox != null) {
 			return thePage.artbox;
 		} else {
-			return getPagebox( inPageNumber, cpPagebox.cropbox);
+			return getPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'cropbox') {
 		if (thePage.cropbox != null) {
 			return thePage.cropbox;
 		} else {
-			return getPagebox( inPageNumber, cpPagebox.mediabox);
+			return getPagebox( inPageNumber, pcPagebox.mediabox);
 		}
 	}
 
@@ -79,7 +79,7 @@ function pcGetPagebox( inPageNumber, inPagebox ) {
 // Given the page index for a page (0-based), get an array with information for it. The coordinate system 
 // for the information returned is the **HTML** coordinate system: (0,0) equals top left corner, 
 // x-axis pointing right, y-axis pointing down. 
-// Example: var theTrimBox = pcGetPageboxInfo( 0, cpPagebox.trimbox )
+// Example: var theTrimBox = pcGetPageboxInfo( 0, pcPagebox.trimbox )
 //
 // inPageNumber: the (0-based) page number for the page you're interested in
 // inPagebox: the pagebox you're interested in
@@ -100,7 +100,7 @@ function pcGetPageboxInfo( inPageNumber, inPagebox ) {
 	var theInfo = [];
 
 	// Get the mediabox and the requested pagebox
-	var theMediabox = pcGetPagebox( inPageNumber, cpPagebox.mediabox );
+	var theMediabox = pcGetPagebox( inPageNumber, pcPagebox.mediabox );
 	var thePagebox = pcGetPagebox( inPageNumber, inPagebox );
 
 	// The left of the box is the left of the pagebox - the left of the mediabox
