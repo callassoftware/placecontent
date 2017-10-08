@@ -19,25 +19,25 @@
 
 // An enum to represent the different pageboxes
 //
-var cpPagebox = {
+var pcPagebox = {
 	cropbox: 		{ value: "cropbox" },
 	mediabox: 		{ value: "mediabox" },
 	trimbox: 		{ value: "trimbox" },
 	artbox: 		{ value: "artbox" },
 	bleedbox: 		{ value: "bleedbox" }
 };
-Object.freeze(cpPagebox);
+Object.freeze(pcPagebox);
 
 
 // Given the page index for a page (0-based), returns the page box asked for.
-// Example: var theTrimBox = cpGetPagebox( 0, cpPagebox.trimbox )
+// Example: var theTrimBox = pcGetPagebox( 0, cpPagebox.trimbox )
 // 
 // inPageNumber: the (0-based) page number for the page you're interested in
 // inPagebox: the pagebox you're interested in
 //
 // Returns: an array with the lower left (X and Y), width and height of the pagebox in points
 //
-function cpGetPagebox( inPageNumber, inPagebox ) {
+function pcGetPagebox( inPageNumber, inPagebox ) {
 
 	// Get the page object
 	var thePage = cals_doc_info.pages[inPageNumber];
@@ -79,7 +79,7 @@ function cpGetPagebox( inPageNumber, inPagebox ) {
 // Given the page index for a page (0-based), get an array with information for it. The coordinate system 
 // for the information returned is the **HTML** coordinate system: (0,0) equals top left corner, 
 // x-axis pointing right, y-axis pointing down. 
-// Example: var theTrimBox = cpGetPageboxInfo( 0, cpPagebox.trimbox )
+// Example: var theTrimBox = pcGetPageboxInfo( 0, cpPagebox.trimbox )
 //
 // inPageNumber: the (0-based) page number for the page you're interested in
 // inPagebox: the pagebox you're interested in
@@ -94,14 +94,14 @@ function cpGetPagebox( inPageNumber, inPagebox ) {
 // 6: center (X)
 // 7: middle (Y)
 //
-function cpGetPageboxInfo( inPageNumber, inPagebox ) {
+function pcGetPageboxInfo( inPageNumber, inPagebox ) {
 
 	// Start an empty array
 	var theInfo = [];
 
 	// Get the mediabox and the requested pagebox
-	var theMediabox = cpGetPagebox( inPageNumber, cpPagebox.mediabox );
-	var thePagebox = cpGetPagebox( inPageNumber, inPagebox );
+	var theMediabox = pcGetPagebox( inPageNumber, cpPagebox.mediabox );
+	var thePagebox = pcGetPagebox( inPageNumber, inPagebox );
 
 	// The left of the box is the left of the pagebox - the left of the mediabox
 	var theLeft = (thePagebox[0] - theMediabox[0]);
@@ -138,7 +138,7 @@ function cpGetPageboxInfo( inPageNumber, inPagebox ) {
 //
 // Returns: the name of the processed PDF file from the JSON file
 //
-function cpGetFileName( inWithExtension ) {
+function pcGetFileName( inWithExtension ) {
 
 	// By default return the filename without extension
 	inWithExtension = typeof inWithExtension !== 'undefined' ? inWithExtension : false;
@@ -151,7 +151,7 @@ function cpGetFileName( inWithExtension ) {
 //
 // Returns: the full path of the processed PDF file from the JSON file 
 //
-function cpGetFilePath() {
+function pcGetFilePath() {
 
 	return cals_doc_info.document.path;
 }
@@ -160,7 +160,7 @@ function cpGetFilePath() {
 //
 // Returns: the number of pages of the processed PDF file from the JSON file 
 //
-function getNumberOfPages() {
+function pcGetNumberOfPages() {
 
 	return cals_doc_info.document.numberofpages;
 }
@@ -171,7 +171,7 @@ function getNumberOfPages() {
 //
 // Returns: the value of the variable from the JSON file if found, null if the variable doesn't exist
 //
-function cpGetVariableValue( inName ) {
+function pcGetVariableValue( inName ) {
 
 	// Get the array with variables
 	var theVariables = cals_doc_info.document.variables;
@@ -191,7 +191,7 @@ function cpGetVariableValue( inName ) {
 // inDefault: the default value to return if the variable doesn't exist
 //
 // Returns: 
-function cpGetVariableValueWithDefault( inName, inDefault ) {
+function pcGetVariableValueWithDefault( inName, inDefault ) {
 
 	// Get the array with variables
 	var theVariables = cals_doc_info.document.variables;
@@ -207,21 +207,21 @@ function cpGetVariableValueWithDefault( inName, inDefault ) {
 
 // Gets the list of inks for a page
 //
-function cpGetInkList( inPageNumber ) {
+function pcGetInkList( inPageNumber ) {
 
 	return cals_doc_info.pages[inPageNumber].inks;
 }
 
 // Gets the number of inks for a page
 //
-function cpGetInkCount( inPageNumber ) {
+function pcGetInkCount( inPageNumber ) {
 
 	return cals_doc_info.pages[inPageNumber].inks.length;
 }
 
 // Returns a textual color definition that is understood by cchip for a specific ink
 //
-function cpGetInkDefinitionAsText( inInk ) {
+function pcGetInkDefinitionAsText( inInk ) {
 
 	// Look at the ink name and differentiate between the different possibilities
 	if (inInk.name === 'Cyan') return '-cchip-cmyk( 1.0, 0, 0, 0)';
@@ -244,7 +244,7 @@ function cpGetInkDefinitionAsText( inInk ) {
 
 // Returns a textual color definition that is understood by cchip for a specific ink
 //
-function cpGetInkDefinitionWithTintAsText( inInk, inTint ) {
+function pcGetInkDefinitionWithTintAsText( inInk, inTint ) {
 
 	// Look at the ink name and differentiate between the different possibilities - for CMYK the tint
 	// is taken as the actual value
@@ -415,7 +415,7 @@ function pcAdjustDocumentSizeToSizeInPointsWithTrimboxAndBleedbox( inWidth, inHe
 
 // An enum to represent the different anchor points
 //
-var cpAnchorPoints = {
+var pcAnchorPoints = {
 	leftTop: 		{ value: 1, x: 'left', y: 'top' },
 	centerTop: 		{ value: 2, x: 'center', y: 'top' },
 	rightTop: 		{ value: 3, x: 'right', y: 'top' },
@@ -426,7 +426,7 @@ var cpAnchorPoints = {
 	centerBottom: 	{ value: 8, x: 'center', y: 'bottom' },
 	rightBottom: 	{ value: 9, x: 'right', y: 'bottom' }
 };
-Object.freeze(cpAnchorPoints);
+Object.freeze(pcAnchorPoints);
 
 // Positions the given element on the page
 // ElementID: the CSS identifier for the object we want to move. Anything supported by jQuery is
@@ -440,14 +440,14 @@ Object.freeze(cpAnchorPoints);
 // OffsetY: an additional vertical offset (positive is to the bottom) between the anchor points of
 //          the object and the pagebox. Specified in pt.
 //
-function positionElement( inElementID, inElementAnchor, inPageNumber, inPagebox, inPageboxAnchor, inOffsetX, inOffsetY ) {
+function pcPositionElement( inElementID, inElementAnchor, inPageNumber, inPagebox, inPageboxAnchor, inOffsetX, inOffsetY ) {
 
 	// Start by copying the initial offsets - this will be adjusted to provide anchoring
 	var theXPosition = inOffsetX;
 	var theYPosition = inOffsetY;
 
 	// Get the information for the anchor box
-	var theAnchorboxInfo = cpGetPageboxInfo( inPageNumber, inPagebox );
+	var theAnchorboxInfo = pcGetPageboxInfo( inPageNumber, inPagebox );
 
 	// Adjust for pagebox anchoring
 	if (inPageboxAnchor.x === 'left') {
