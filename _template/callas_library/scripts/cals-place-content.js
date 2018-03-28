@@ -497,6 +497,23 @@ function pcPositionElement( inElementID, inElementAnchor, inPageNumber, inPagebo
 	});
 }
 
+//-------------------------------------------------------------------------------------------------
+// BARCODES
+//-------------------------------------------------------------------------------------------------
+
+// Set the correct value to the barcode represented by the given object ID
+//
+function pcUpdateBarcodeData( inElementID, inValue ) {
+
+	// Find the object and its data member and set the value attribute
+	$(inElementID).find('param[name=data]').attr('value', inValue);
+
+	// In order to update the barcode, we need to detach and reattach it
+	var theParent = $(inElementID).parent();
+	var theBarcode = $(inElementID).detach();
+	theParent.append( theBarcode );
+}
+
 
 
 
