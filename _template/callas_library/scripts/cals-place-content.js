@@ -9,7 +9,7 @@
 // - jQuery
 //-------------------------------------------------------------------------------------------------
 // Author: David van Driessche
-// Copyright: Copyright © 2017 - Four Pees
+// Copyright: Copyright © 2018 - Four Pees
 //-------------------------------------------------------------------------------------------------
 
 
@@ -203,6 +203,13 @@ function pcGetVariableValueWithDefault( inName, inDefault ) {
 
 	// Found nothing
 	return inDefault;
+}
+
+// Gets the user units for a page
+//
+function pcGetUserUnits( inPageNumber ) {
+
+	return cals_doc_info.pages[inPageNumber].userunit;
 }
 
 // Gets the list of inks for a page
