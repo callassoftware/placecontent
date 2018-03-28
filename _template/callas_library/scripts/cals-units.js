@@ -139,6 +139,47 @@ function unitFormatWithUnit( inValue, inUnit, inNumDigits ) {
     }
 }
 
+// Converts the given string into a unit value
+// Example: var theUnit = unitConvertStringToUnit( "mm" );
+//
+function unitConvertStringToUnit( inUnitString ) {
+
+    switch( inUnitString ) {
+            
+        case "pt": {
+            return unitUnits.point;
+        }   
+      
+        case "px": {
+            return unitUnits.px;
+        }   
+            
+        case "mm": {
+            return unitUnits.mm;
+        }   
+            
+        case "cm": {
+            return unitUnits.cm;
+        }   
+            
+        case "m": {
+            return unitUnits.m;
+        }   
+            
+        case "in": {
+            return unitUnits.inch;
+        }   
+        
+        case "ft": {
+            return unitUnits.foot;
+        }   
+
+        default: {
+            return unitUnits.point;
+        }
+    }
+}
+
 
 
 
