@@ -47,28 +47,28 @@ function pcGetPagebox( inPageNumber, inPagebox ) {
 		if ( thePage.trimbox != null) {
 			return thePage.trimbox;
 		} else {
-			return getPagebox( inPageNumber, pcPagebox.cropbox);
+			return pcGetPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'bleedbox') {
 		if (thePage.bleedbox != null) {
 			return thePage.bleedbox;
 		} else {
-			return getPagebox( inPageNumber, pcPagebox.cropbox);
+			return pcGetPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'artbox') {
 		if (thePage.artbox != null) {
 			return thePage.artbox;
 		} else {
-			return getPagebox( inPageNumber, pcPagebox.cropbox);
+			return pcGetPagebox( inPageNumber, pcPagebox.cropbox);
 		}
 	}
 	if (inPagebox.value === 'cropbox') {
 		if (thePage.cropbox != null) {
 			return thePage.cropbox;
 		} else {
-			return getPagebox( inPageNumber, pcPagebox.mediabox);
+			return pcGetPagebox( inPageNumber, pcPagebox.mediabox);
 		}
 	}
 
